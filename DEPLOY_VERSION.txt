@@ -1,0 +1,3 @@
+Deploy Version: v0.8.0
+Deploy Time: 2025-01-18 02:12 KST
+Deploy Trigger: Manual redeploy for Vercel configuration
