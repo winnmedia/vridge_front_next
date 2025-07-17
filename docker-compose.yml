@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=https://videoplanet.up.railway.app
+      - NEXT_PUBLIC_SOCKET_URI=wss://videoplanet.up.railway.app
+      - NEXT_PUBLIC_PRODUCTION_DOMAIN=vlanet.net
+    restart: unless-stopped
