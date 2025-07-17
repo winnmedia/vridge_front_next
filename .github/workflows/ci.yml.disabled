@@ -1,3 +1,14 @@
+# GitHub Actions CI/CD - 현재 비활성화됨
+# Vercel이 자동으로 빌드/배포를 처리하므로 필요하지 않음
+# 
+# 활성화하려면:
+# 1. 파일명을 ci.yml로 변경
+# 2. GitHub Secrets 설정:
+#    - API_URL
+#    - VERCEL_TOKEN
+#    - VERCEL_ORG_ID
+#    - VERCEL_PROJECT_ID
+
 name: CI/CD Pipeline
 
 on:
@@ -15,10 +26,10 @@ jobs:
         node-version: [18.x, 20.x]
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
@@ -38,9 +49,9 @@ jobs:
         NEXT_PUBLIC_API_URL: ${{ secrets.API_URL }}
     
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: build-files
+        name: build-files-${{ matrix.node-version }}
         path: .next/
 
   deploy:
@@ -49,7 +60,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Deploy to Vercel
       uses: amondnet/vercel-action@v20
