@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { AppDispatch, RootState } from '@/store/store';
 import { fetchProjects } from '@/store/features/projectSlice';
 import { projectService } from '@/lib/projects/project.service';
+import PageTemplate from '@/components/layout/PageTemplate';
 
 export default function ProjectsPage() {
   const router = useRouter();
@@ -40,8 +41,8 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4">
+    <PageTemplate>
+      <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">프로젝트 관리</h1>
           <Link
@@ -216,6 +217,6 @@ export default function ProjectsPage() {
           </div>
         )}
       </div>
-    </div>
+    </PageTemplate>
   );
 }
