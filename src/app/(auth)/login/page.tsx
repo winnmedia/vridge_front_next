@@ -114,6 +114,11 @@ export default function LoginPage() {
             </Link>
           </div>
         </form>
+        
+        {/* 버전 정보 */}
+        <div className="mt-8 text-center text-xs text-gray-400">
+          v{process.env.NEXT_PUBLIC_VERSION || '0.8.1'}
+        </div>
       </div>
     </div>
   );

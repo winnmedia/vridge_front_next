@@ -4,11 +4,15 @@
   "devCommand": "npm run dev",
   "outputDirectory": ".next",
   "env": {
-    "NEXT_PUBLIC_API_URL": "@videoplanet_api_url"
+    "NEXT_PUBLIC_API_URL": "@videoplanet_api_url",
+    "NEXT_PUBLIC_VERSION": "0.8.1",
+    "NEXT_PUBLIC_BUILD_DATE": "@BUILD_DATE"
   },
   "build": {
     "env": {
-      "NEXT_PUBLIC_API_URL": "@videoplanet_api_url"
+      "NEXT_PUBLIC_API_URL": "@videoplanet_api_url",
+      "NEXT_PUBLIC_VERSION": "0.8.1",
+      "NEXT_PUBLIC_BUILD_DATE": "@BUILD_DATE"
     }
   },
   "headers": [
